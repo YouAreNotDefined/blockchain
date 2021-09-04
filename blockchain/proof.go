@@ -47,7 +47,7 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 
 	for nonce < math.MaxInt64 { // nonce < max of Int64
 		data := pow.InitData(nonce)
-		hash := sha256.Sum256(data)
+		hash = sha256.Sum256(data)
 
 		fmt.Printf("\r%x", hash)
 		intHash.SetBytes(hash[:]) // hash [32]byte != pow.Target: big.Int(integer)
